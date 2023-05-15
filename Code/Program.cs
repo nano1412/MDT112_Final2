@@ -1,12 +1,15 @@
 ﻿using System;
 
-class Program{
-  static void Main(string[] args){
+class Program
+{
+  static void Main(string[] args)
+  {
     WaterSupply();
     Treasurer();
   }
 
-  static void WaterSupply(){
+  static void WaterSupply()
+  {
     double vMax = double.Parse(Console.ReadLine());
     double vDrink = double.Parse(Console.ReadLine());
     double vFill = double.Parse(Console.ReadLine());
@@ -17,29 +20,38 @@ class Program{
     double currentWater = vMax;
     bool isOverflow = false;
 
-    for(double currentTime = 1; currentTime <= tDay;currentTime++){
-      if(currentTime % tDrink == 0){
+    for (double currentTime = 1; currentTime <= tDay; currentTime++)
+    {
+      if (currentTime % tDrink == 0)
+      {
         currentWater -= vDrink;
       }
-      if(currentWater < 0){
+      if (currentWater < 0)
+      {
         break;
       }
-      if(currentTime % tFill == 0){
+      if (currentTime % tFill == 0)
+      {
         currentWater += vFill;
       }
-      if(currentWater > vMax){
+      if (currentWater > vMax)
+      {
         currentWater = vMax;
         isOverflow = true;
       }
-      currentWater = Math.Round(currentWater,2);
+      currentWater = Math.Round(currentWater, 2);
     }
-    
-    if(currentWater >= 0){
+
+    if (currentWater >= 0)
+    {
       Console.WriteLine("Enough Water, {0} left", currentWater);
-    } else {
+    }
+    else
+    {
       Console.WriteLine("Not Enough Water");
     }
-    if(isOverflow){
+    if (isOverflow)
+    {
       Console.WriteLine("Overflow Water");
     }
   }
@@ -57,29 +69,29 @@ class Program{
     do
     {
       itemPrice = double.Parse(Console.ReadLine());
-      if (itemPrice <= 0){break;}
-        if (itemPrice < b[0])
-        {
-          b[0] = b[0] - itemPrice;
-        }
-        else if (itemPrice < b[1])
-        {
-          b[1] = b[1] - itemPrice;
-        }
-        else if (itemPrice < b[2])
-        {
-          b[2] = b[2] - itemPrice;
-        }
-        else
-        {
-          l = l + itemPrice;
-        }
-      
+      if (itemPrice <= 0) { break; }
+      if (itemPrice < b[0])
+      {
+        b[0] = b[0] - itemPrice;
+      }
+      else if (itemPrice < b[1])
+      {
+        b[1] = b[1] - itemPrice;
+      }
+      else if (itemPrice < b[2])
+      {
+        b[2] = b[2] - itemPrice;
+      }
+      else
+      {
+        l = l + itemPrice;
+      }
 
-      Math.Round(b[0],2);
-      Math.Round(b[1],2);
-      Math.Round(b[2],2);
-      Math.Round(l,2);
+
+      Math.Round(b[0], 2);
+      Math.Round(b[1], 2);
+      Math.Round(b[2], 2);
+      Math.Round(l, 2);
 
     } while (itemPrice > 0);
 
